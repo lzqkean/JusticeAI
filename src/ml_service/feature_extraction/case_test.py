@@ -1,6 +1,7 @@
 import case
+import os
 
-case = case.Case("./dummy_cases/sample_case1.txt")
+case = case.Case(os.getcwd() + "/dummy_cases/sample_case1.txt")
 
 
 def test_no_demande():
