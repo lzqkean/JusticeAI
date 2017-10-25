@@ -4,19 +4,19 @@ services:
   ml_service:
     command: bash -c 'pytest && bash <(curl -s https://codecov.io/bash) && if ! [ -z "$$(autopep8 -dr .)" ]; then autopep8 -dr .; exit 1; fi;'
     environment:
-      - FIXES: "src/backend_service/::"
+      - FIXES="src/backend_service/::"
   nlp_service:
     command: bash -c 'pytest && bash <(curl -s https://codecov.io/bash) && if ! [ -z "$$(autopep8 -dr .)" ]; then autopep8 -dr .; exit 1; fi;'
     environment:
-      - FIXES: "src/nlp_service/::"
+      - FIXES="src/nlp_service/::"
   backend_service:
     command: bash -c 'pytest && bash <(curl -s https://codecov.io/bash) && if ! [ -z "$$(autopep8 -dr .)" ]; then autopep8 -dr .; exit 1; fi;'
     environment:
-      - FIXES: "src/backend_service/::"
+      - FIXES="src/backend_service/::"
   web_client:
     command: bash -c "npm run test && bash <(curl -s https://codecov.io/bash) && npm run lint"
     environment:
-      - FIXES: "src/web_client/::"
+      - FIXES="src/web_client/::"
   postgresql_db:
     environment:
       POSTGRES_PASSWORD: DEV_PASS_NOT_SECRET
